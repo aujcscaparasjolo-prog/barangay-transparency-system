@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BarangayConnect | Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div id="adminLogin" class="login-screen">
+    <div class="login-box"><div class="brand"><span class="brand-mark">✦</span><b>Barangay<span>Connect</span></b></div><p class="eyebrow">STAFF PORTAL</p><h1>Admin login</h1><p class="muted">Mag-login bilang barangay staff para pamahalaan ang requests at updates.</p><label>Email<input id="adminEmail" type="email" placeholder="admin@barangay.ph"></label><label>Password<input id="adminPassword" type="password" placeholder="admin123"></label><button id="adminLoginBtn" class="primary full">Mag-login →</button><p class="demo">Demo account: <b>admin@barangay.ph</b> / <b>admin123</b></p><a href="index.html" class="back">← Bumalik sa resident portal</a></div>
+  </div>
+  <div id="adminApp" class="hidden">
+    <header class="topbar"><div class="brand"><span class="brand-mark">✦</span><b>Barangay<span>Connect</span></b><span class="admin-badge">ADMIN</span></div><div class="admin-user">Barangay Staff <button id="logoutBtn" class="logout">Lumabas</button></div></header>
+    <main class="admin-container">
+      <div class="page-title"><div><p class="eyebrow">BARANGAY STAFF PORTAL</p><h1>Admin Dashboard</h1><p class="muted">Kontrolin ang document requests at mag-publish ng barangay updates.</p></div><a href="index.html" class="secondary">Tingnan ang public site ↗</a></div>
+      <section class="stats"><div><small>Total requests</small><strong id="totalCount">0</strong></div><div><small>Pending</small><strong id="pendingCount">0</strong></div><div><small>In process</small><strong id="processCount">0</strong></div><div><small>Completed</small><strong id="completedCount">0</strong></div></section>
+      <div class="dashboard-grid">
+        <section class="panel requests-panel"><div class="panel-heading"><div><h2>Document requests</h2><p class="muted">I-review at i-update ang status ng requests.</p></div><select id="statusFilter"><option value="all">Lahat</option><option>Pending</option><option>In process</option><option>Completed</option></select></div><input id="searchRequests" class="search" placeholder="⌕  Maghanap sa requests..."/><div id="requestsList"></div></section>
+        <section class="panel update-panel"><div class="panel-heading"><div><h2>Mag-publish ng update</h2><p class="muted">Ang ilalagay dito ay makikita sa public updates.</p></div></div><form id="updateForm"><label>Uri<select id="updateType"><option>PROJECT UPDATE</option><option>ANNOUNCEMENT</option><option>REPORT</option></select></label><label>Pamagat<input id="updateTitle" required placeholder="Hal. Road improvement sa Purok 3"></label><label>Detalye<textarea id="updateDetails" rows="4" required placeholder="Ilagay ang impormasyon para sa community..."></textarea></label><label>Petsa<input id="updateDate" type="date" required></label><button class="primary full">I-publish ang update</button></form></section>
+      </div>
+      <section class="panel published-panel"><div class="panel-heading"><div><h2>Published updates</h2><p class="muted">Mga update na ginawa ng barangay staff.</p></div></div><div id="updatesList"></div></section>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div><script src="admin.js"></script>
+</body>
+</html>
